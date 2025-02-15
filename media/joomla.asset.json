@@ -1,0 +1,48 @@
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "mod_virtuemart_zcartsave",
+  "version": "1.0.0",
+  "description": "Ukládání košíků",
+  "license": "GPL-2.0-or-later",
+ "assets": [
+    {
+      "name": "mod_virtuemart_zcartsave.mod_cartsave",
+      "type": "script",
+      "uri": "mod_virtuemart_zcartsave/mod_cartsave.js",
+      "dependencies": [
+        "core",
+        "messages"
+      ],
+      "attributes": {
+        "type": "module"
+      },
+      "version": "1.1.0"
+    },
+    {
+      "name": "mod_virtuemart_zcartsave.askid2",
+      "type": "script",
+      "uri": "mod_virtuemart_zcartsave/askid2.js",
+      "dependencies": [
+        "core",
+        "messages"
+      ],
+      "attributes": {
+        "type": "module"
+      },
+      "version": "1.1.0"
+    },
+    {
+      "name": "mod_virtuemart_zcartsave.mod_cartsave",
+      "type": "style",
+      "uri": "mod_virtuemart_zcartsave/mod_cartsave.css",
+      "version": "1.0.0"
+    },
+    {
+      "name": "mod_virtuemart_zcartsave.opcard",
+      "type": "style",
+      "uri": "mod_virtuemart_zcartsave/opcard.css",
+      "version": "1.0.0"
+    }
+  ]
+
+}

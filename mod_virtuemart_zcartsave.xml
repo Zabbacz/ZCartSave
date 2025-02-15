@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" client="site" method="upgrade">
+	<name>ZCartSave</name>
+	<author>Zabba - orig by RuposTel</author>
+	<creationDate>2018</creationDate>
+	<copyright>Copyright (C) 2005 - 2018 All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorUrl>www.rupostel.com</authorUrl>
+	<version>2.0</version>
+	<description>MOD_CARTSAVE_DESC</description>
+        <namespace path="src">Zabba\Module\ZCartSave</namespace>
+        <files>
+        <folder module="mod_virtuemart_zcartsave">services</folder>
+        <folder>src</folder>
+        <folder>tmpl</folder>
+        <folder>language</folder>
+        <filename>index.html</filename>
+        <filename>helper.php</filename>
+    </files>
+    <media destination="mod_virtuemart_zcartsave" folder="media">
+        <filename>joomla.asset.json</filename>
+        <folder>css</folder>
+        <folder>js</folder>
+    </media>
+    <languages>
+        <language tag="en-GB">language/en-GB/mod_virtuemart_zcartsave.ini</language>
+	<language tag="en-GB">language/en-GB/mod_virtuemart_zcartsave.sys.ini</language>
+      	<language tag="cs-CZ">language/cs-CZ/mod_virtuemart_zcartsave.ini</language>
+    </languages> 
+    <config>
+	<fields name="params">
+            <fieldset name="basic">
+                <field type="list" name="allowany" default="0" label="User cart sharing" description="Allow anybody to load a cart if he knows the name of the cart">
+                    <option value="0">Only anonymous user can load somebody's cart and the user himself</option>
+                    <option value="1">Anybody can load anybody's cart if he knows the name or link</option>
+		</field>
+		<field type="note" label="B2B Setup" description="Below option allows to share stored cart list among organization. The same organization is decided upon several user accounts by OPC's usertab plugin which associates remote ID of an organization against Joomla's user_id, same as if largest virtuemart_shoppegroup_id is larger than ID 11, the shopper group is considered to be an organization remote ID. Per match of these IDs a group of user_id's is decided which lists the carts. (order sharing, document sharing is possible as well - contact rupostel.com for support)  " />
+		<field type="list" name="b2bshared" default="0" label="Shared cart list" description="B2B shared account configuration">
+                    <option value="0">--NOT CONFIGURED--</option>
+                    <option value="1">Show list of the stored carts per organization</option>
+		</field>
+		<field type="text" name="ownsgs" label="Own shopper group" description="Set a shopper group ID - if higher then this it is considered to be organization ID for sharing the carts and all users in this SG will share the list of stored carts" default="0" />
+		<field type="usergrouplist" name="manager" label="Manager group" description="Set a manager group" default="0" >
+                    <option value="0">-- NOT CONFIGURED --</option>
+		</field>
+		<field type="usergrouplist" name="testuser" label="Test user group" description="Set a test user group - these users will be ignored in normal accounts" default="0" >
+                    <option value="0">-- NOT CONFIGURED --</option>
+		</field>
+	</fieldset>
+	<fieldset name="display">
+            <field type="list" default="0" name="clearcart" label="Show clear cart button" description="Display a button to clear content of current cart">
+                <option value="0">JNO</option>
+		<option value="1">JYES</option>
+            </field>
+            <field type="list" default="0" name="fontawesome" label="Load font awesome" description="Disable if it's loaded from your template directly.">
+                <option value="0">JYES</option>
+		<option value="1">JNO</option>
+            </field>
+            <field type="list" default="0" name="mergetype" label="Merge Question" description="">
+                <option value="0">Display merge checkbox as checked by default</option>
+		<option value="1">Display merge checkbox as not checked by default</option>
+		<option value="2">Display merge question upon loading cart with merge as default</option>
+		<option value="3">Display merge question upon loading cart with not merge as default</option>
+		<option value="4">Always rewrite current cart</option>
+		<option value="5">Always merge into current cart</option>
+            </field>
+            <field type="list" default="0" name="displaycartnameinput" label="Display Cart Name Input" description="Disable within OPC checkout if you want">
+                <option value="0">JYES</option>
+		<option value="1">JNO</option>
+            </field>
+            <field type="note" name="myspacer" hr="true" label="Cart list display settings" />
+            <field type="list" default="0" name="displaycartlist" label="Display List of Stored Carts" description="Disable within OPC checkout if you want">
+                <option value="0">Display list of stored carts</option>
+		<option value="1">Do not display list of stored carts</option>
+            </field>
+            <field type="list" default="0" name="displayloadicon" label="Display load icon" description="Disable within OPC checkout if you want">
+                <option value="0">JYES</option>
+		<option value="1">JNO</option>
+            </field>
+            <field type="list" default="0" name="displaycartname" label="Display Cart Name" description="Disable within OPC checkout if you want">
+                <option value="0">JYES</option>
+		<option value="1">JNO</option>
+            </field>
+            <field type="list" default="0" name="displayremoveicon" label="Display remove icon" description="Disable within OPC checkout if you want">
+                <option value="0">JYES</option>
+		<option value="1">JNO</option>
+            </field>
+            <field type="list" default="0" name="displayfulllist" label="Always display full list of stored carts" description="i.e. use accordion or not">
+                <option value="0">JNO</option>
+		<option value="1">JYES</option>
+            </field>
+            <field type="note" name="sharelinks" hr="true" label="Share links inside cart list" />
+            <field type="note" name="myspacer2" hr="true" label="Button config outside the list" />
+            <field type="list" default="0" name="displaysavebutton" label="Display save button" description="Disable within OPC checkout if you want">
+                <option value="0">JYES</option>
+		<option value="1">JNO</option>
+            </field>
+            <field type="list" default="0" name="displaysavebuttonforlogged" label="Enable save button only for registered" description="Disable within OPC checkout if you want">
+                <option value="0">JNO</option>
+		<option value="1">JYES</option>
+            </field>
+            <field type="list" default="0" name="displayloadbutton" label="Display load button" description="Disable within OPC checkout if you want">
+                <option value="0">JYES</option>
+		<option value="1">JNO</option>
+            </field>
+            <field type="list" default="0" name="redirecttocart" label="Always redirect to cart URL" description="After any action at the module, always redirect to the cart">
+                <option value="0">JYES</option>
+		<option value="1">JNO</option>
+            </field>
+            <field
+		name="layout"
+		type="modulelayout"
+		label="JFIELD_ALT_LAYOUT_LABEL"
+		description="JFIELD_ALT_MODULE_LAYOUT_DESC"
+            />
+				
+	</fieldset>
+        </fields>
+    </config>
+</extension>
