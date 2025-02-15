@@ -1,3 +1,1 @@
-Uklkadani kosiku pro Virtuemart.
-Puvodni kod vytvoril RuposTel, toto je upraveny kod pro me potreby.
-Aby modul fungoval je treba mit naunstalovanu komponentu OPC od RuposTel.
+Ukladani kosiku pro Virtuemart. Puvodni kod vytvoril RuposTel, toto je upraveny kod pro me potreby. Aby modul fungoval je treba mit nainstalovanu komponentu OPC od RuposTel. Modul je funkcni pro JOOMLA 4 a 5, VM 4+
